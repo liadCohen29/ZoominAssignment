@@ -3,6 +3,7 @@ import axios from 'axios';
 import {makeStyles} from '@material-ui/core/styles';
 import {Typography} from '@material-ui/core'
 import MoviesTable from "./MoviesTable";
+import MovieDetailsView from "./MovieDetailsView";
 
 const useStyles = makeStyles({
     mainBoxBackground: {
@@ -61,7 +62,11 @@ const MainPage=()=> {
                     <MoviesTable func={isOpenData} films={allFilmsData}/>
                 </div>
                 <div className={classes.rightSide}>
-                   {isOpen && <Typography variant={'h2'} style={{color: 'white', marginLeft: '260px'}}>Film Details</Typography>}
+                   {isOpen && 
+                   <>
+                        <Typography variant={'h2'} style={{color: 'white', marginLeft: '260px'}}>Film Details</Typography>
+                        <MovieDetailsView film={currentFilm}/>
+                        </>}
                 </div>
 
             </div>
