@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 import axios from 'axios';
 import {makeStyles} from '@material-ui/core/styles';
 import {Typography} from '@material-ui/core'
+import MoviesTable from "./MoviesTable";
 
 const useStyles = makeStyles({
     mainBoxBackground: {
@@ -35,6 +36,8 @@ const useStyles = makeStyles({
 const MainPage=()=> {
     const classes = useStyles();
     const [allFilmsData, setAllFilmsData] = useState([]);
+    const [isOpen,setIsOpen] = useState(false)
+    const [currentFilm,setCurrentFilm] = useState(null)
     const getSwapiData = () => {
         axios.get('https://swapi.dev/api/films').then((res)=>{
             setAllFilmsData(res.data.results);
@@ -45,14 +48,20 @@ const MainPage=()=> {
         getSwapiData();
     },[])
 
+    const isOpenData = (state,film) =>{
+        setIsOpen(state);
+        setCurrentFilm(film)
+    }
+
     return (
         <div className={classes.mainBoxBackground}>
             <div className={classes.container}>
                 <div className={classes.leftSide}>
                     <Typography variant={'h2'} style={{paddingBottom:'40px', textAlign:'center', color:'white'}}>Films List</Typography>
+                    <MoviesTable func={isOpenData} films={allFilmsData}/>
                 </div>
                 <div className={classes.rightSide}>
-                    <Typography variant={'h2'} style={{color: 'white', marginLeft: '260px'}}>Film Details</Typography>
+                   {isOpen && <Typography variant={'h2'} style={{color: 'white', marginLeft: '260px'}}>Film Details</Typography>}
                 </div>
 
             </div>
