@@ -5,7 +5,7 @@ import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
 import { useEffect, useState } from "react";
 
 const useStyles = makeStyles({
-    root: { borderRadius: '5px', height: '588px', width: '50%', backgroundColor: 'white', position: 'absolute', marginTop: '40px' },
+    root: { borderRadius: '5px', height: '588px', width: '55%', backgroundColor: 'white', position: 'absolute', marginTop: '40px', overflow:'auto' },
     detailsBox: {
         padding: '50px 50px 20px 50px'
     },

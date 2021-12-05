@@ -58,13 +58,13 @@ const MainPage=()=> {
         <div className={classes.mainBoxBackground}>
             <div className={classes.container}>
                 <div className={classes.leftSide}>
-                    <Typography variant={'h2'} style={{paddingBottom:'40px', textAlign:'center', color:'white'}}>Films List</Typography>
+                    <Typography variant={'h2'} style={{paddingBottom:'40px', textAlign:'center', color:'white' , whiteSpace: 'nowrap'}}>Films List</Typography>
                     <MoviesTable func={isOpenData} films={allFilmsData}/>
                 </div>
                 <div className={classes.rightSide}>
                    {isOpen && 
                    <>
-                        <Typography variant={'h2'} style={{color: 'white', marginLeft: '260px'}}>Film Details</Typography>
+                        <Typography variant={'h2'} style={{color: 'white', textAlign:'center' , whiteSpace: 'nowrap'}}>Film Details</Typography>
                         <MovieDetailsView film={currentFilm}/>
                         </>}
                 </div>

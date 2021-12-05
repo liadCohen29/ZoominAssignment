@@ -8,8 +8,8 @@ import TableRow from '@material-ui/core/TableRow';
 import {Paper} from "@material-ui/core";
 import { useState} from "react";
 const useStyles = makeStyles({
-    root: {width:'100%'},
-    tableContainer:{overflow:'hidden', opacity:1, height:'588px',backgroundColor:'white', width:'90%',marginLeft:'3%'}// a style rule
+    root: {width:'100%', cursor:'pointer'},
+    tableContainer:{overflow:'auto', opacity:1, height:'588px',backgroundColor:'white', width:'90%',marginLeft:'3%'}// a style rule
 });
 
 
